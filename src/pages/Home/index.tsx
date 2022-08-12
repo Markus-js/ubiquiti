@@ -1,8 +1,11 @@
 import React from 'react'
+import TableList from '../../features/TableList/TableList'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <section>
+      <TableList />
+    </section>
   )
 }
 
