@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import logo from '../assets/Ubiquiti_logo.svg';
+import logo from '../../assets/Ubiquiti_logo.svg';
 
 
 const NavBar = () => {

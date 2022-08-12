@@ -1,14 +1,24 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NavBar from './components/NavBar';
+// ROUTES
+import Home from './pages/Home/';
+import Device from './pages/Device';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<h1>Home</h1>} />
-        <Route path="/device/:name" element={<h1>device detail</h1>} />
-      </Routes>
-    </div>
+    <>
+      <Router>
+        <NavBar />
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/device/:name" element={<Device />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
