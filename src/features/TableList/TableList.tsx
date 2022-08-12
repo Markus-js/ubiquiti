@@ -1,48 +1,39 @@
 import React from 'react'
-
-const devices = 123
-
-const arr = [
-  {
-    title: "name",
-  },
-  {
-    title: "wef",
-  },
-  {
-    title: "namfewe",
-  },
-]
+// REDUX
+import { useSelector, useDispatch } from "react-redux";
+import { setDevices } from '../../redux/devicesSlice';
+// UTILS
+import { IDevice, IDeviceState } from '../../utils/types';
+import { getProductIcon } from '../../utils/getProductIcon';
+// STYLE
+import './TableList.scss'
 
 const TableList = () => {
+  const devices = useSelector((state: IDeviceState) => state.devicesStore.devices)
+
+  console.log(devices)
+
   return (
 
-    <table>
+    <table className="table" >
       <thead>
         <tr>
-          <th>{`${devices}devices`}</th>
+          <th>{`${devices.length}devices`}</th>
           <th>PRODUCT LINE</th>
           <th>NAME</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          {arr.map((item, idx) => (
-            <td key={idx}>{item.title}</td>
-          ))}
-        </tr>
-        <tr>
-          <td>text2.1</td>
-          <td>text2.2</td>
-          <td>text2.3</td>
-        </tr>
-        <tr>
-          <td>text3.1</td>
-          <td>text3.2</td>
-          <td>text3.3</td>
-        </tr>
-        <tr>
-        </tr>
+        {devices.length > 0 && devices.map((device: IDevice, idx: number) => (
+
+          <tr className="table__row" key={idx}>
+            <td className="table__data">
+              <img className="table__img" src={getProductIcon(device.icon.id, 25)} alt={device.line.name} />
+            </td>
+            <td className="table__data">{device.line.name}</td>
+            <td className="table__data">{device.product.name}</td>
+          </tr>
+        ))}
       </tbody>
     </table>
   )

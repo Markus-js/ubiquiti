@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// REDUX
 import { useSelector, useDispatch } from "react-redux";
 import { setDevices } from './redux/devicesSlice';
 // COMPONENTS
@@ -10,13 +11,12 @@ import Home from './pages/Home/';
 import Device from './pages/Device';
 // UTILS
 import { getDevices } from './utils/getDevices';
-
 import { IDevice, IDeviceState } from './utils/types';
 
 
 
 function App() {
-  const devices = useSelector((state: IDeviceState) => state.devicesStore.devices)
+  // const devices = useSelector((state: IDeviceState) => state.devicesStore.devices)
   const dispatch = useDispatch();
 
 
@@ -26,7 +26,7 @@ function App() {
     })
   }, []);
 
-  console.log(devices)
+  // console.log(devices)
 
   return (
     <>

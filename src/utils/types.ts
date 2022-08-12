@@ -1,9 +1,12 @@
 interface IDeviceState {
-    devicesStore: IDevice;
+    devicesStore: IDeviceReducer;
+}
+
+interface IDeviceReducer {
+    devices: IDevice[];
 }
 
 interface IDevice {
-    devices: IDevice;
     guids: [];
     icon: {
         id: string;
