@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchBar from '../../components/SearchBar/SearchBar';
-import './toolbar.scss';
+import './Toolbar.scss';
 
 const Toolbar = () => {
   return (

@@ -3,6 +3,7 @@ interface IDeviceState {
 }
 
 interface IDeviceReducer {
+    filterDevices: IDevice[];
     devices: IDevice[];
 }
 

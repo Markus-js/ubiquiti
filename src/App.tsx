@@ -16,7 +16,6 @@ import { IDevice, IDeviceState } from './utils/types';
 
 
 function App() {
-  // const devices = useSelector((state: IDeviceState) => state.devicesStore.devices)
   const dispatch = useDispatch();
 
 
@@ -24,6 +23,7 @@ function App() {
     getDevices().then((data: IDevice) => {
       dispatch(setDevices(data));
     })
+    console.log('RENDER!!')
   }, []);
 
   // console.log(devices)
