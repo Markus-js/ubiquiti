@@ -14,7 +14,7 @@ const TableList = () => {
 
 
 
-  console.log(filterDevices)
+  // console.log(filterDevices)
 
   return (
 

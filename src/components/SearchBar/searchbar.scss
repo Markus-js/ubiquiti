@@ -3,6 +3,9 @@
 .toolbar {
     height: 48px;
     width: 100%;
+    .filter {
+        display: flex;
+    }
     &__nav {
         display: flex;
         background-color: $bg-grey;

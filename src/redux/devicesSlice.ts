@@ -14,26 +14,43 @@ export const DeviceReducer = createSlice({
             state.devices = payload;
         },
         filterDevices: (state, { payload }) => {
-            console.log(payload);
-            if (payload.length === 0) {
+            const { searchTerm, checkedCategories } = payload;
+
+            if (searchTerm.length === 0) {
                 state.filterDevices = state.devices;
             } else {
                 state.filterDevices = state.devices.filter(
                     (device: {
+                        checkedCategories: any;
                         product: { name: string };
                         line: { name: string };
                     }) => {
+                        if (checkedCategories.length === 0) {
+                            return (
+                                device.product.name
+                                    .toLowerCase()
+                                    .includes(searchTerm.toLowerCase()) ||
+                                device.line.name
+                                    .toLowerCase()
+                                    .includes(searchTerm.toLowerCase())
+                            );
+                        }
                         return (
-                            device.product.name
+                            (device.product.name
                                 .toLowerCase()
-                                .includes(payload.toLowerCase()) ||
-                            device.line.name.includes(payload)
+                                .includes(searchTerm.toLowerCase()) &&
+                                checkedCategories.includes(device.line.name)) ||
+                            (device.line.name
+                                .toLowerCase()
+                                .includes(searchTerm.toLowerCase()) &&
+                                checkedCategories.includes(device.line.name))
                         );
                     }
                 );
             }
         },
         resetDevice: state => {
+            // filter widt categories
             state.filterDevices = state.devices;
         },
     },
