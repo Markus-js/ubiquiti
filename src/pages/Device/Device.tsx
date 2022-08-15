@@ -5,7 +5,8 @@ import { useSelector } from "react-redux";
 // UTILS
 import { IDevice, IDeviceState } from '../../utils/types';
 import { formatDeviceProperties, getProductIcon } from '../../utils/helpers';
-
+// STYLE
+import './Device.scss'
 
 const Device = () => {
   const { shortname } = useParams();
@@ -19,20 +20,21 @@ const Device = () => {
 
   return device ? (
     <main className="device-container">
-      <div className="device-container__img-wrapper">
-        <img className="device-container__img" src={getProductIcon(device?.icon.id, 129)} alt={device?.line.name} />
-      </div>
-      <table className="table" >
-        <tbody>
-          {deviceProps && deviceProps.map((property: any, idx: number) => (
-            <tr key={idx}>
-              <td>{property.title}</td>
-              <td>{property.value}</td>
-            </tr>
-          )
-          )}
-        </tbody>
-      </table>
+      <section className="device">
+        <img className="device__img" src={getProductIcon(device?.icon.id, 129)} alt={device?.line.name} />
+
+        <table className="table" >
+          <tbody>
+            {deviceProps && deviceProps.map((property: any, idx: number) => (
+              <tr className="table__row" key={idx}>
+                <td className="table__data">{property.title}</td>
+                <td className="table__data table__data--align-right">{property.value}</td>
+              </tr>
+            )
+            )}
+          </tbody>
+        </table>
+      </section>
 
     </main>
   ) : <p>Cannot find product</p>

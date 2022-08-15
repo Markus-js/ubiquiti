@@ -23,7 +23,7 @@ const List = () => {
   return (
 
     <table className="table" >
-      <thead>
+      <thead className="table__head" >
         <tr>
           <th>{`${filterDevices.length}devices`}</th>
           <th>PRODUCT LINE</th>
