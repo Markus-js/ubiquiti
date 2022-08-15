@@ -1,10 +1,19 @@
 import React from 'react'
-import TableList from '../../features/TableList/TableList'
+import List from '../../features/List/List'
+// REDUX
+import { useSelector } from "react-redux";
+import Grid from '../../features/Grid/Grid';
+
 
 const Home = () => {
+  const displayOption = useSelector((state: any) => state.devicesStore.displayOption)
+
   return (
     <section>
-      <TableList />
+      {displayOption
+        ? <List />
+        : <Grid />
+      }
     </section>
   )
 }

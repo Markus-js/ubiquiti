@@ -28,17 +28,17 @@ interface IDevice {
             k1: string;
         }
     ];
-    // unifi?: {
-    //     network?: {
-    //         radios?: {
-    //             na?: {
-    //                 maxPower?: number;
-    //                 maxSpeedMegabitsPerSecond?: number;
-    //             };
-    //         };
-    //         numberOfPorts?: number;
-    //     };
-    // };
+    unifi?: {
+        network?: {
+            radios?: {
+                na?: {
+                    maxPower?: number;
+                    maxSpeedMegabitsPerSecond?: number;
+                };
+            };
+            numberOfPorts?: number;
+        };
+    };
 }
 
 export type { IDevice, IDeviceState };

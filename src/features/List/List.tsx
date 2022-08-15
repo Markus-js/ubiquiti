@@ -1,20 +1,24 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
+
 // REDUX
-import { useSelector, useDispatch } from "react-redux";
-import { setDevices } from '../../redux/devicesSlice';
+import { useSelector } from "react-redux";
 // UTILS
 import { IDevice, IDeviceState } from '../../utils/types';
-import { getProductIcon } from '../../utils/getProductIcon';
+import { getProductIcon } from '../../utils/helpers';
 // STYLE
-import './TableList.scss'
+import './List.scss'
 
-const TableList = () => {
+const List = () => {
   const devices = useSelector((state: IDeviceState) => state.devicesStore.devices)
   const filterDevices = useSelector((state: IDeviceState) => state.devicesStore.filterDevices)
+  const displayOption = useSelector((state: any) => state.devicesStore.displayOption)
 
+  const navigate = useNavigate();
 
-
-  // console.log(filterDevices)
+  const navigateDevice = (shortname: string) => {
+    navigate(`/device/${shortname}`);
+  };
 
   return (
 
@@ -29,7 +33,7 @@ const TableList = () => {
       <tbody>
         {filterDevices && filterDevices.map((device: IDevice, idx: number) => {
           return (
-            <tr className="table__row" key={idx}>
+            <tr onClick={() => navigateDevice(device.shortnames[0])} className="table__row" key={idx}>
               <td className="table__data">
                 <img className="table__img" src={getProductIcon(device.icon.id, 25)} alt={device.line.name} />
               </td>
@@ -44,4 +48,4 @@ const TableList = () => {
   )
 }
 
-export default TableList
+export default List

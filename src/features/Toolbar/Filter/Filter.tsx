@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // REDUX
 import { useSelector, useDispatch } from "react-redux";
-import { filterDevices, setDisplayOption } from '../../../redux/devicesSlice';
+import { filterDevices, displayOption } from '../../../redux/devicesSlice';
 // UTILS 
 import { uniqueDevices, handleCategoryChange } from '../utils';
 import Close from '../../../assets/close.svg';
@@ -12,7 +12,7 @@ const Filters = () => {
   const [checkedCategories, setCheckedCategories] = useState<string[]>([]);
   const devices = useSelector((state: any) => state.devicesStore.devices)
 
-  const [active, setActive] = useState(true);
+  const [active, setActive] = useState(false);
   const dispatch = useDispatch();
 
 
@@ -28,8 +28,8 @@ const Filters = () => {
   return (
     <>
       <section className="filter__options">
-        <span onClick={() => dispatch(setDisplayOption("LIST"))} className="filter__options__item ">List</span>
-        <span onClick={() => dispatch(setDisplayOption("GRID"))} className="filter__options__item ">Grid</span>
+        <span onClick={() => dispatch(displayOption(true))} className="filter__options__item ">List</span>
+        <span onClick={() => dispatch(displayOption(false))} className="filter__options__item ">Grid</span>
         <span onClick={() => setActive(true)} className="filter__options__item">Filter</span>
       </section>
       <section className={`${active ? "filter" : "hidden"}`}>

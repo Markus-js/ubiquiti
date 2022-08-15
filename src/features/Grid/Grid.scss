@@ -1,0 +1,26 @@
+@import "../../styles/variables.scss";
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.card {
+    width: 233px;
+    height: 193px;
+    border: 1px solid #dbdce1;
+    border-radius: 8px;
+    margin: 0.7em;
+    cursor: pointer;
+    &__img-wrapper {
+        background-color: #f6f6f8;
+        height: 124px;
+        display: flex;
+        justify-content: center;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+    &__description {
+        padding: 1em;
+    }
+}
