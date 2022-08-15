@@ -25,13 +25,6 @@ export const DeviceReducer = createSlice({
             state.stateCheckedCategories =
                 checkedCategories || state.stateCheckedCategories || [];
 
-            const test = () => {
-                return state.devices.filter((device: any) => {
-                    return device.name
-                        .toLowerCase()
-                        .includes(state.stateSearchTerm.toLowerCase());
-                });
-            };
             if (
                 state.stateSearchTerm.length === 0 &&
                 state.stateCheckedCategories.length === 0
@@ -79,6 +72,42 @@ export const DeviceReducer = createSlice({
                 );
             }
         },
+        // filterDevices: (state, { payload }) => {
+        //     const { searchTerm, checkedCategories } = payload;
+
+        //     if (searchTerm.length === 0) {
+        //         state.filterDevices = state.devices;
+        //     } else {
+        //         state.filterDevices = state.devices.filter(
+        //             (device: {
+        //                 checkedCategories: string[];
+        //                 product: { name: string };
+        //                 line: { name: string };
+        //             }) => {
+        //                 if (checkedCategories.length === 0) {
+        //                     return (
+        //                         device.product.name
+        //                             .toLowerCase()
+        //                             .includes(searchTerm.toLowerCase()) ||
+        //                         device.line.name
+        //                             .toLowerCase()
+        //                             .includes(searchTerm.toLowerCase())
+        //                     );
+        //                 }
+        //                 return (
+        //                     (device.product.name
+        //                         .toLowerCase()
+        //                         .includes(searchTerm.toLowerCase()) &&
+        //                         checkedCategories.includes(device.line.name)) ||
+        //                     (device.line.name
+        //                         .toLowerCase()
+        //                         .includes(searchTerm.toLowerCase()) &&
+        //                         checkedCategories.includes(device.line.name))
+        //                 );
+        //             }
+        //         );
+        //     }
+        // },
         resetDevice: state => {
             // filter widt categories
             state.filterDevices = state.devices;

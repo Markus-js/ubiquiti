@@ -1,11 +1,13 @@
 import React from 'react';
-import SearchBar from '../../components/SearchBar/SearchBar';
+import Filters from './Filters/Filters';
+import SearchBar from './SearchBar/SearchBar';
 import './Toolbar.scss';
 
 const Toolbar = () => {
   return (
     <section className="toolbar">
       <SearchBar />
+      <Filters />
     </section>
   )
 }

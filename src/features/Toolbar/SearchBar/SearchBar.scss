@@ -1,0 +1,42 @@
+@import "../../../styles/variables.scss";
+
+.toolbar {
+    height: 48px;
+    width: 100%;
+    .filter {
+        display: flex;
+    }
+    &__nav {
+        display: flex;
+        background-color: $bg-grey;
+        width: 344px;
+        height: 32px;
+        padding: 0.2em 0.5em;
+        border-radius: 5px;
+    }
+    &__search {
+        background-color: $bg-grey;
+        width: 100%;
+        border: none;
+    }
+    %icon {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        padding: 0.1em;
+        align-self: center;
+    }
+    &__search-icon {
+        @extend %icon;
+        background: url("../../../assets/magnifier.svg");
+        height: 30px;
+        width: 30px;
+    }
+    &__close-icon {
+        @extend %icon;
+        background: url("../../../assets/close.svg");
+        height: 12px;
+        width: 12px;
+        cursor: pointer;
+    }
+}

@@ -1,10 +1,10 @@
-// import React, { useState, useEffect, useRef } from 'react';
-// import './SearchBar.scss';
-// // REDUX
-// import { useSelector, useDispatch } from "react-redux";
-// import { filterDevices, resetDevice } from '../../../redux/devicesSlice';
-// // UTILS 
-// import { uniqueDevices, handleCategoryChange } from '../utils';
+import React, { useState, useEffect, useRef } from 'react';
+import './SearchBar.scss';
+// REDUX
+import { useSelector, useDispatch } from "react-redux";
+import { filterDevices, resetDevice } from '../../../redux/devicesSlice';
+// UTILS 
+import { uniqueDevices, handleCategoryChange } from '../utils';
 
 const SearchBar = () => {
   // const [searchTerm, setSearchTerm] = useState<string>('');
