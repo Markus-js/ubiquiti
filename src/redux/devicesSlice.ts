@@ -5,6 +5,7 @@ const initialState: any = {
     filterDevices: [],
     stateSearchTerm: "",
     stateCheckedCategories: [],
+    setDisplayOption: "LIST",
 };
 
 export const DeviceReducer = createSlice({
@@ -83,8 +84,12 @@ export const DeviceReducer = createSlice({
             // filter widt categories
             state.filterDevices = state.devices;
         },
+        setDisplayOption: (state, { payload }) => {
+            state.setDisplayOption = payload;
+        },
     },
 });
 
-export const { setDevices, filterDevices, resetDevice } = DeviceReducer.actions;
+export const { setDevices, filterDevices, resetDevice, setDisplayOption } =
+    DeviceReducer.actions;
 export default DeviceReducer.reducer;

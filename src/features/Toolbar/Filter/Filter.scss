@@ -1,0 +1,31 @@
+.filter__options {
+    display: flex;
+    gap: 0.5em;
+    &__item {
+        background-color: red;
+        cursor: pointer;
+    }
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    z-index: 200;
+    position: absolute;
+    right: 0px;
+    top: 56px;
+    width: 256px;
+    padding-bottom: 28px;
+    &__header {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__close {
+        cursor: pointer;
+    }
+}
+
+.hidden {
+    display: none;
+}

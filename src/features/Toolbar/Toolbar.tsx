@@ -1,5 +1,5 @@
 import React from 'react';
-import Filters from './Filters/Filters';
+import Filters from './Filter/Filter';
 import SearchBar from './SearchBar/SearchBar';
 import './Toolbar.scss';
 
