@@ -9,11 +9,19 @@
     display: flex;
     width: 688px;
     &__img {
-        min-width: 256px;
+        min-height: 256px;
+        object-fit: cover;
     }
     .table {
         border-collapse: collapse;
         width: 100%;
+        &__row {
+            cursor: inherit;
+            &:hover {
+                background-color: inherit;
+                @include text();
+            }
+        }
         &__data {
             text-align: left;
             &--align-right {
