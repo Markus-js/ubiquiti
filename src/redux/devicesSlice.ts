@@ -5,7 +5,7 @@ const initialState: any = {
     filterDevices: [],
     stateSearchTerm: "",
     stateCheckedCategories: [],
-    displayOption: true,
+    listView: true,
 };
 
 export const DeviceReducer = createSlice({
@@ -85,7 +85,7 @@ export const DeviceReducer = createSlice({
             state.filterDevices = state.devices;
         },
         displayOption: (state, { payload }) => {
-            state.displayOption = payload;
+            state.listView = payload;
         },
     },
 });

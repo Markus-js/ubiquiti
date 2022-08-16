@@ -8,11 +8,11 @@ import './Home.scss';
 
 
 const Home = () => {
-  const displayOption = useSelector((state: any) => state.devicesStore.displayOption)
+  const listView = useSelector((state: any) => state.devicesStore.listView)
 
   return (
     <main className="main-content">
-      {displayOption
+      {listView
         ? <List />
         : <Grid />
       }

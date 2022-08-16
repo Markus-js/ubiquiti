@@ -10,7 +10,6 @@ import './Grid.scss'
 
 const Grid = () => {
   const filterDevices = useSelector((state: IDeviceState) => state.devicesStore.filterDevices)
-
   const navigate = useNavigate();
 
   const navigateDevice = (shortname: string) => {
@@ -27,9 +26,9 @@ const Grid = () => {
               <div className="card__img-wrapper">
                 <img className="card__img" src={getProductIcon(device.icon.id, 129)} alt={device.line.name} />
               </div>
-              <div className="card__description">
-                <h3>{device.product.name}</h3>
-                <p>{device.line.name}</p>
+              <div className="card__info">
+                <h3 className="card__title">{device.product.name}</h3>
+                <p className="card__desc">{device.line.name}</p>
               </div>
             </div>
           )

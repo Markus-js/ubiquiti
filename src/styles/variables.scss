@@ -1,12 +1,13 @@
 $bg-primary: #fff;
-$bg-grey: #fbfbfb;
-$border-color: #ecedf0;
+$bg-grey: #f6f6f8;
+$border-color: #ededf0;
 $hover-color: #fbfbfb;
+$active-color: #006fff;
 
 $text-color: rgba(0, 0, 0, 0.65);
+$text-color-light: rgba(0, 0, 0, 0.45);
 $text-color-dark-grey: #838691;
 $text-color-light-grey: #bdbdbd;
-$text-color-light: rgba(0, 0, 0, 0.45);
 
 @mixin text(
     $color: $text-color,

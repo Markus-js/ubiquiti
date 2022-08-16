@@ -1,8 +1,11 @@
+@import "../../../styles/variables.scss";
+
 .filter__options {
     display: flex;
-    gap: 0.5em;
+    gap: 1em;
+    align-items: center;
+    @include text($lineHeight: 0px);
     &__item {
-        background-color: red;
         cursor: pointer;
     }
 }

@@ -15,6 +15,12 @@
     border: 1px solid $border-color;
     border-radius: 8px;
     cursor: pointer;
+    &:hover {
+        @include text($color: $active-color);
+    }
+    &:hover > &__img-wrapper {
+        background-color: #eaf8ff;
+    }
     &__img-wrapper {
         background-color: #f6f6f8;
         height: 124px;
@@ -23,8 +29,14 @@
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
     }
-    &__description {
+    &__info {
         padding: 1em;
+    }
+    &__title {
+        font-weight: 700;
+    }
+    &__desc {
+        @include text($textSize: 0.75rem, $color: $text-color-light);
     }
 }
 

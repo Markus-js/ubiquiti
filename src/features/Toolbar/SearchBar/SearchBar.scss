@@ -1,32 +1,28 @@
 @import "../../../styles/variables.scss";
 
-.toolbar {
-    height: 48px;
-    width: 100%;
-    .filter {
-        display: flex;
-    }
-    &__nav {
-        display: flex;
-        background-color: $bg-grey;
-        width: 344px;
-        height: 32px;
-        padding: 0.2em 0.5em;
-        border-radius: 5px;
-    }
-    &__search {
+.search {
+    display: flex;
+    background-color: $bg-grey;
+    width: 344px;
+    height: 32px;
+    padding-left: 0.3em;
+    padding-right: 0.8em;
+    border-radius: 5px;
+
+    &__input {
         background-color: $bg-grey;
         width: 100%;
         border: none;
+        outline: none;
     }
     %icon {
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
-        padding: 0.1em;
+        // padding: 0.1em;
         align-self: center;
     }
-    &__search-icon {
+    &__icon {
         @extend %icon;
         background: url("../../../assets/magnifier.svg");
         height: 30px;
