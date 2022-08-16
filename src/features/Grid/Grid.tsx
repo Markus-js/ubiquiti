@@ -20,10 +20,10 @@ const Grid = () => {
   return (
     <>
       <h3>{filterDevices.length}</h3>
-      <section className="grid" >
+      <section className="grid-container" >
         {filterDevices && filterDevices.map((device: IDevice, idx: number) => {
           return (
-            <div onClick={() => navigateDevice(device.shortnames[0])} key={idx} className="card">
+            <div className="card" onClick={() => navigateDevice(device.shortnames[0])} key={idx} >
               <div className="card__img-wrapper">
                 <img className="card__img" src={getProductIcon(device.icon.id, 129)} alt={device.line.name} />
               </div>

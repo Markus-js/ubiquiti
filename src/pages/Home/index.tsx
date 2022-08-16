@@ -3,18 +3,20 @@ import List from '../../features/List/List'
 // REDUX
 import { useSelector } from "react-redux";
 import Grid from '../../features/Grid/Grid';
+// STYLE
+import './Home.scss';
 
 
 const Home = () => {
   const displayOption = useSelector((state: any) => state.devicesStore.displayOption)
 
   return (
-    <section>
+    <main className="main-content">
       {displayOption
         ? <List />
         : <Grid />
       }
-    </section>
+    </main>
   )
 }
 

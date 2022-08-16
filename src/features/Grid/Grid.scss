@@ -1,16 +1,19 @@
 @import "../../styles/variables.scss";
 
-.grid {
+.grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    place-items: center;
 }
 
 .card {
-    width: 233px;
+    width: 180px;
     height: 193px;
-    border: 1px solid #dbdce1;
+    border: 1px solid $border-color;
     border-radius: 8px;
-    margin: 0.7em;
     cursor: pointer;
     &__img-wrapper {
         background-color: #f6f6f8;
@@ -22,5 +25,15 @@
     }
     &__description {
         padding: 1em;
+    }
+}
+
+@media screen and (min-width: 668px) {
+    .grid-container {
+        grid-template-columns: repeat(auto-fit, 233px);
+        gap: 2em;
+    }
+    .card {
+        width: 233px;
     }
 }

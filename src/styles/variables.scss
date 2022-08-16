@@ -1,3 +1,25 @@
 $bg-primary: #fff;
 $bg-grey: #fbfbfb;
-$border: #ecedf0;
+$border-color: #ecedf0;
+$hover-color: #fbfbfb;
+
+$text-color: rgba(0, 0, 0, 0.65);
+$text-color-dark-grey: #838691;
+$text-color-light-grey: #bdbdbd;
+$text-color-light: rgba(0, 0, 0, 0.45);
+
+@mixin text(
+    $color: $text-color,
+    $textSize: 14px,
+    $textWeight: 400,
+    $lineHeight: 24px
+) {
+    color: $color;
+    font-size: $textSize;
+    font-weight: $textWeight;
+    line-height: $lineHeight;
+}
+
+%main-content {
+    margin: 2em;
+}

@@ -16,4 +16,11 @@
         align-items: center;
         padding: 0 1em;
     }
+    &__title {
+        @include text(
+            $color: $text-color-dark-grey,
+            $textSize: 1.3rem,
+            $textWeight: 400
+        );
+    }
 }
