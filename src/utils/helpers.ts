@@ -1,3 +1,5 @@
+import { IDevice, IProperty } from "../utils/types";
+
 const getDevices = async () => {
     const query = await fetch(
         "https://static.ui.com/fingerprint/ui/public.json"
@@ -9,7 +11,10 @@ const getDevices = async () => {
 const getProductIcon = (id: string, res: number) =>
     `https://static.ui.com/fingerprint/ui/icons/${id}_${res}x${res}.png`;
 
-const formatDeviceProperties = (device: any | undefined) => {
+const formatDeviceProperties = (device: IDevice | undefined) => {
+    console.log("device");
+    console.log(device);
+
     if (device) {
         return [
             {

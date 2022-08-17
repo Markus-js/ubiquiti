@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { filterDevices, displayOption } from '../../../redux/devicesSlice';
 // UTILS 
 import { uniqueDevices, handleCategoryChange } from '../utils';
-import { IDevice, IDeviceState } from '../../../utils/types';
+import { IDeviceState } from '../../../utils/types';
 // STYLE
 import './Filter.scss';
 // ICONS

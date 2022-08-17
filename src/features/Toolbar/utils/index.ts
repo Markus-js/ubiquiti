@@ -1,8 +1,9 @@
 import { ChangeEvent, SetStateAction } from "react";
+import { IDevice } from "../../../utils/types";
 
-export const uniqueDevices = (devices: any) => {
-    const uniqueDevices: any[] = [];
-    devices.map((device: any) => {
+export const uniqueDevices = (devices: IDevice[]) => {
+    const uniqueDevices: string[] = [];
+    devices.map(device => {
         if (!uniqueDevices.includes(device.line.name)) {
             uniqueDevices.push(device.line.name);
         }
@@ -19,7 +20,7 @@ export const handleCategoryChange = (
         if (checked) {
             return [...prevState, name];
         } else {
-            return prevState.filter((category: any) => category !== name);
+            return prevState.filter((category: string) => category !== name);
         }
     });
 };

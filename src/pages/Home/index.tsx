@@ -3,12 +3,14 @@ import List from '../../features/List/List'
 // REDUX
 import { useSelector } from "react-redux";
 import Grid from '../../features/Grid/Grid';
+// UTILS 
+import { IDeviceState } from '../../utils/types';
 // STYLE
 import './Home.scss';
 
 
 const Home = () => {
-  const listView = useSelector((state: any) => state.devicesStore.listView)
+  const listView = useSelector((state: IDeviceState) => state.devicesStore.listView)
 
   return (
     <main className="main-content">

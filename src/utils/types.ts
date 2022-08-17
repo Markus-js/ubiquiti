@@ -42,4 +42,9 @@ interface IDevice {
     };
 }
 
-export type { IDevice, IDeviceState };
+interface IProperty {
+    title: string;
+    value: string | number;
+}
+
+export type { IDevice, IDeviceState, IProperty };

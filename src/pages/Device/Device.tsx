@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 // REDUX
 import { useSelector } from "react-redux";
 // UTILS
-import { IDevice, IDeviceState } from '../../utils/types';
+import { IDevice, IDeviceState, IProperty } from '../../utils/types';
 import { formatDeviceProperties, getProductIcon } from '../../utils/helpers';
 // STYLE
 import './Device.scss'
@@ -12,9 +12,6 @@ const Device = () => {
   const { shortname } = useParams();
   const devices = useSelector((state: IDeviceState) => state.devicesStore.devices)
   const device = devices?.find((device: IDevice) => device.shortnames[0] === shortname);
-
-  console.log(device)
-
 
   const deviceProps = formatDeviceProperties(device);
 
@@ -25,7 +22,7 @@ const Device = () => {
 
         <table className="table" >
           <tbody>
-            {deviceProps && deviceProps.map((property: any, idx: number) => (
+            {deviceProps && deviceProps.map((property: IProperty, idx: number) => (
               <tr className="table__row" key={idx}>
                 <td className="table__data">{property.title}</td>
                 <td className="table__data table__data--align-right">{property.value}</td>
