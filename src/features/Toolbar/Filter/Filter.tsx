@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { filterDevices, displayOption } from '../../../redux/devicesSlice';
 // UTILS 
 import { uniqueDevices, handleCategoryChange } from '../utils';
+import { IDevice, IDeviceState } from '../../../utils/types';
 // STYLE
 import './Filter.scss';
 // ICONS
@@ -15,8 +16,8 @@ import ListIconActive from '../../../assets/list-icon-active.svg';
 
 const Filters = () => {
   const [checkedCategories, setCheckedCategories] = useState<string[]>([]);
-  const listView = useSelector((state: any) => state.devicesStore.listView)
-  const devices = useSelector((state: any) => state.devicesStore.devices)
+  const listView = useSelector((state: IDeviceState) => state.devicesStore.listView)
+  const devices = useSelector((state: IDeviceState) => state.devicesStore.devices)
 
   const [active, setActive] = useState(false);
   const dispatch = useDispatch();

@@ -10,9 +10,7 @@ import { getProductIcon } from '../../utils/helpers';
 import './List.scss'
 
 const List = () => {
-  const devices = useSelector((state: IDeviceState) => state.devicesStore.devices)
   const filterDevices = useSelector((state: IDeviceState) => state.devicesStore.filterDevices)
-  const displayOption = useSelector((state: any) => state.devicesStore.displayOption)
 
   const navigate = useNavigate();
 

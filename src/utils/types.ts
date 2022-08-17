@@ -5,6 +5,7 @@ interface IDeviceState {
 interface IDeviceReducer {
     filterDevices: IDevice[];
     devices: IDevice[];
+    listView: boolean;
 }
 
 interface IDevice {
