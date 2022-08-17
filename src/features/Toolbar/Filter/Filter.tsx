@@ -1,9 +1,9 @@
-import React, { useState, useEffect, SetStateAction, HTMLAttributeReferrerPolicy } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 // REDUX
 import { useSelector, useDispatch } from "react-redux";
-import { filterDevices, displayOption } from '../../../redux/devicesSlice';
+import { filterDevices, displayOption, resetCheckedCategories } from '../../../redux/devicesSlice';
 // UTILS 
-import { uniqueDevices, handleCategoryChange } from '../utils';
+import { uniqueDevices, handleCategoryChange } from '../../../utils/helpers';
 import { IDeviceState } from '../../../utils/types';
 // STYLE
 import './Filter.scss';
@@ -16,16 +16,14 @@ import ListIconActive from '../../../assets/list-icon-active.svg';
 
 const Filters = () => {
   const [checkedCategories, setCheckedCategories] = useState<string[]>([]);
+  const [active, setActive] = useState(false);
   const listView = useSelector((state: IDeviceState) => state.devicesStore.listView)
   const devices = useSelector((state: IDeviceState) => state.devicesStore.devices)
 
-  const [active, setActive] = useState(false);
+  const checkboxRef = useRef(null);
   const dispatch = useDispatch();
 
-
-
   useEffect(() => {
-    console.log("Dispatched useEffect")
     dispatch(filterDevices({ checkedCategories }))
   }, [checkedCategories])
 
@@ -38,7 +36,15 @@ const Filters = () => {
         <span onClick={() => dispatch(displayOption(false))} className="filter__options__item ">
           <img src={listView ? GridIcon : GridIconActive} alt="Grid view" />
         </span>
-        <span onClick={() => setActive(true)} className="filter__options__item">Filter</span>
+
+        <span className={checkedCategories.length > 0 ? "reset-btn reset-btn--active" : "reset-btn"}>
+          {checkedCategories.length > 0 &&
+            <img onClick={() => dispatch(resetCheckedCategories())} className="reset-btn--icon" src={Close} alt="Reset" />
+          }
+          <span onClick={() => setActive(true)} >
+            Filter
+          </span>
+        </span>
       </section>
       <section className={`${active ? "filter" : "hidden"}`}>
         <div className="filter__header">
@@ -53,6 +59,7 @@ const Filters = () => {
                 onClick={(e) => handleCategoryChange(e.target, setCheckedCategories)}
                 name={lineName}
                 type="checkbox"
+                ref={checkboxRef}
               />
               {lineName}
             </label>

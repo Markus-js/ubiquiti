@@ -50,6 +50,26 @@
         cursor: pointer;
     }
 }
+.reset-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    cursor: pointer;
+    &--active {
+        padding: 0.3em;
+        background-color: $bg-grey;
+        border-radius: 0.5rem;
+    }
+
+    &--icon {
+        padding: 0.3em;
+        background-color: $bg-primary;
+        border-radius: 50%;
+        &:hover {
+            background-color: $red-color;
+        }
+    }
+}
 
 .hidden {
     display: none;

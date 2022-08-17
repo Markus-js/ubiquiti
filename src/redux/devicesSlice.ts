@@ -80,6 +80,9 @@ export const DeviceReducer = createSlice({
                 );
             }
         },
+        resetCheckedCategories: state => {
+            state.stateCheckedCategories = [];
+        },
         resetDevice: state => {
             // filter widt categories
             state.filterDevices = state.devices;
@@ -90,6 +93,11 @@ export const DeviceReducer = createSlice({
     },
 });
 
-export const { setDevices, filterDevices, resetDevice, displayOption } =
-    DeviceReducer.actions;
+export const {
+    setDevices,
+    filterDevices,
+    resetDevice,
+    displayOption,
+    resetCheckedCategories,
+} = DeviceReducer.actions;
 export default DeviceReducer.reducer;
