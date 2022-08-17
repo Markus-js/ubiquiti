@@ -18,7 +18,6 @@ const Grid = () => {
 
   return (
     <>
-      <h3>{filterDevices.length}</h3>
       <section className="grid-container" >
         {filterDevices && filterDevices.map((device: IDevice, idx: number) => {
           return (
@@ -30,6 +29,7 @@ const Grid = () => {
                 <h3 className="card__title">{device.product.name}</h3>
                 <p className="card__desc">{device.line.name}</p>
               </div>
+              <h3 className="card__counter" >{`${filterDevices.length} devices`}</h3>
             </div>
           )
         }

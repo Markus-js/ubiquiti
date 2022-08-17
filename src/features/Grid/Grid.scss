@@ -5,8 +5,9 @@
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     align-items: center;
-    gap: 1em;
     place-items: center;
+    gap: 1em;
+    margin-top: 3em;
 }
 
 .card {
@@ -15,6 +16,17 @@
     border: 1px solid $border-color;
     border-radius: 8px;
     cursor: pointer;
+    position: relative;
+    &__counter {
+        display: none;
+    }
+    &:first-child > &__counter {
+        display: block;
+        position: absolute;
+        top: -35px;
+        left: 0;
+        @include text($color: $text-color-light-grey);
+    }
     &:hover {
         @include text($color: $active-color);
     }
