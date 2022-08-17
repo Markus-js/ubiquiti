@@ -9,6 +9,9 @@ $text-color-light: rgba(0, 0, 0, 0.45);
 $text-color-dark-grey: #838691;
 $text-color-light-grey: #bdbdbd;
 
+$box-shadow-color: rgba(0, 0, 0, 0.15);
+$box-shadow: 0px 12px 48px 0px $box-shadow-color;
+
 @mixin text(
     $color: $text-color,
     $textSize: 14px,

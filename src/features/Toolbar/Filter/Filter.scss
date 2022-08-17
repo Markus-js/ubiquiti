@@ -11,18 +11,40 @@
 }
 
 .filter {
-    display: flex;
-    flex-direction: column;
     background-color: #fff;
     z-index: 200;
     position: absolute;
     right: 0px;
     top: 56px;
     width: 256px;
-    padding-bottom: 28px;
+
+    box-shadow: $box-shadow;
     &__header {
         display: flex;
         justify-content: space-between;
+        height: 47px;
+        align-items: center;
+        padding: 0 24px;
+        border-top: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
+        &--title {
+            @include text();
+        }
+    }
+    &__boxes {
+        display: flex;
+        flex-direction: column;
+        padding: 24px;
+    }
+    &__title {
+        @include text($color: $text-color, $textWeight: 700);
+        padding-bottom: 24px;
+    }
+    &__item {
+        display: flex;
+        gap: 0.5em;
+        padding-bottom: 0.25em;
+        cursor: pointer;
     }
     &__close {
         cursor: pointer;

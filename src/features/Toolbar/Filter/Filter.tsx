@@ -44,12 +44,18 @@ const Filters = () => {
       </section>
       <section className={`${active ? "filter" : "hidden"}`}>
         <div className="filter__header">
-          <h3>Filter</h3>
+          <h3 className="filter__header--title" >Filter</h3>
           <img onClick={() => setActive(false)} className="filter__close" src={Close} alt="close" />
         </div>
-        {devices && uniqueDevices(devices).map((lineName: string) => (
-          <span key={lineName}><input name={lineName} type="checkbox" onClick={(e) => handleCategoryChange(e, setCheckedCategories)} /><span>{lineName}</span></span>
-        ))}
+        <div className='filter__boxes'>
+          <h4 className="filter__title">Product Line</h4>
+          {devices && uniqueDevices(devices).map((lineName: string) => (
+            <label className="filter__item" key={lineName}>
+              <input name={lineName} type="checkbox" onClick={(e) => handleCategoryChange(e, setCheckedCategories)} />
+              {lineName}
+            </label>
+          ))}
+        </div>
       </section>
     </>
   )

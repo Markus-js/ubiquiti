@@ -9,6 +9,7 @@
     top: 0;
     left: -1px;
     background-color: $bg-grey;
+    border-bottom: 1px solid $border-color;
     &__nav {
         width: 100%;
         display: flex;
