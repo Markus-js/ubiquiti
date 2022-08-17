@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 // REDUX
 import { useSelector } from "react-redux";
 // UTILS
-import { IDevice, IDeviceState } from '../../utils/types';
+import { IDevice, IDeviceState } from '../../utils/interfaces';
 import { getProductIcon } from '../../utils/helpers';
 // STYLE
 import './Grid.scss'

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import './SearchBar.scss';
 // REDUX
 import { useDispatch } from "react-redux";
-import { filterDevices, resetDevice } from '../../../redux/devicesSlice';
+import { filterDevices, resetDevice as resetSearchTerm } from '../../../redux/devicesSlice';
 // UTILS 
 
 const SearchBar = () => {
@@ -17,15 +17,13 @@ const SearchBar = () => {
     }
   }
   const handleReset = () => {
-    dispatch(resetDevice());
+    dispatch(resetSearchTerm());
     if (inputRef.current) {
       inputRef.current.value = '';
     }
   }
 
-
   useEffect(() => {
-    console.log("Dispatched useEffect")
     dispatch(filterDevices({ searchTerm }))
   }, [searchTerm])
 

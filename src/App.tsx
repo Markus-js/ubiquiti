@@ -4,20 +4,17 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { setDevices } from './redux/devicesSlice';
 // COMPONENTS
-import NavBar from './features/Header/Header';
+import Header from './features/Header/Header';
 import Toolbar from './features/Toolbar/Toolbar';
 // PAGES
 import Home from './pages/Home/';
 import Device from './pages/Device/Device';
 // UTILS
 import { getDevices } from './utils/helpers';
-import { IDevice } from './utils/types';
-
-
+import { IDevice } from './utils/interfaces';
 
 function App() {
   const dispatch = useDispatch();
-
 
   useEffect(() => {
     getDevices().then((data: IDevice) => {
@@ -26,12 +23,10 @@ function App() {
     console.log('RENDER!!')
   }, []);
 
-  // console.log(devices)
-
   return (
     <>
       <Router>
-        <NavBar />
+        <Header />
         <Toolbar />
         <Routes>
           <Route path="/" element={<Home />} />

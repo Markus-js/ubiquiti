@@ -1,5 +1,5 @@
 import { SetStateAction } from "react";
-import { IDevice } from "../utils/types";
+import { IDevice } from "./interfaces";
 
 const getDevices = async () => {
     const query = await fetch(
@@ -22,12 +22,12 @@ export const uniqueDevices = (devices: IDevice[]) => {
     return uniqueDevices;
 };
 
-export const handleCategoryChange = (
+export const handleFilterChange = (
     eventTarget: EventTarget,
-    setCheckedCategories: { (value: SetStateAction<string[]>): void }
+    setCheckedFilters: { (value: SetStateAction<string[]>): void }
 ) => {
     const { name, checked } = eventTarget as HTMLInputElement;
-    setCheckedCategories((prevState: string[]) => {
+    setCheckedFilters((prevState: string[]) => {
         if (checked) {
             return [...prevState, name];
         } else {

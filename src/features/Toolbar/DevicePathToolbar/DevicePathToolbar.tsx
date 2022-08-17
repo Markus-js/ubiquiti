@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 // REDUX
 import { useSelector } from "react-redux";
 // UTILS
-import { IDevice, IDeviceState } from '../../../utils/types';
+import { IDevice, IDeviceState } from '../../../utils/interfaces';
 // ICONS
 import BackIcon from '../../../assets/back-icon.svg';
 
@@ -18,13 +18,9 @@ const DevicePathToolbar = () => {
     device = devices?.find((device: IDevice) => device.shortnames[0] === shortname);
   }
 
-  const handleNavigation = () => {
-    navigate('/')
-  }
-
   return (
     <>
-      <img onClick={() => handleNavigation()} src={BackIcon} alt="Back" />
+      <img onClick={() => navigate('/')} src={BackIcon} alt="Back" />
       <p>{device && device.line.name}</p>
     </>
   )

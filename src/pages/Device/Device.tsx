@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 // REDUX
 import { useSelector } from "react-redux";
 // UTILS
-import { IDevice, IDeviceState, IProperty } from '../../utils/types';
+import { IDevice, IDeviceState, IProperty } from '../../utils/interfaces';
 import { formatDeviceProperties, getProductIcon } from '../../utils/helpers';
 // STYLE
 import './Device.scss'

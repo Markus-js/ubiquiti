@@ -3,8 +3,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 const initialState: any = {
     devices: [],
     filterDevices: [],
-    stateSearchTerm: "",
-    stateCheckedCategories: [],
+    persistentSearchTerm: "",
+    persistentCheckedFilters: [],
     listView: true,
 };
 
@@ -80,14 +80,14 @@ export const DeviceReducer = createSlice({
                 );
             }
         },
-        resetCheckedCategories: state => {
+        resetCheckedFilters: state => {
             state.stateCheckedCategories = [];
         },
         resetDevice: state => {
             // filter widt categories
             state.filterDevices = state.devices;
         },
-        displayOption: (state, { payload }) => {
+        toggleViewType: (state, { payload }) => {
             state.listView = payload;
         },
     },
@@ -97,7 +97,7 @@ export const {
     setDevices,
     filterDevices,
     resetDevice,
-    displayOption,
-    resetCheckedCategories,
+    toggleViewType,
+    resetCheckedFilters,
 } = DeviceReducer.actions;
 export default DeviceReducer.reducer;
