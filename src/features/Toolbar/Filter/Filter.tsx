@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, SetStateAction, HTMLAttributeReferrerPolicy } from 'react';
 // REDUX
 import { useSelector, useDispatch } from "react-redux";
 import { filterDevices, displayOption } from '../../../redux/devicesSlice';
@@ -29,9 +29,6 @@ const Filters = () => {
     dispatch(filterDevices({ checkedCategories }))
   }, [checkedCategories])
 
-
-
-
   return (
     <>
       <section className="filter__options">
@@ -52,7 +49,11 @@ const Filters = () => {
           <h4 className="filter__title">Product Line</h4>
           {devices && uniqueDevices(devices).map((lineName: string) => (
             <label className="filter__item" key={lineName}>
-              <input name={lineName} type="checkbox" onClick={(e) => handleCategoryChange(e, setCheckedCategories)} />
+              <input
+                onClick={(e) => handleCategoryChange(e.target, setCheckedCategories)}
+                name={lineName}
+                type="checkbox"
+              />
               {lineName}
             </label>
           ))}

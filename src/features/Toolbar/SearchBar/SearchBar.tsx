@@ -34,8 +34,13 @@ const SearchBar = () => {
     <>
       <nav onClick={handleFocus} className="search">
         <span className="search__icon"></span>
-        <input className="search__input" ref={inputRef} onChange={e => setSearchTerm(e.currentTarget.value)} type="text" placeholder="Search" />
-        <span className="search__close-icon" onClick={handleReset} ></span>
+        <input className="search__input"
+          ref={inputRef}
+          onChange={e => setSearchTerm(e.currentTarget.value)}
+          type="text"
+          placeholder="Search"
+        />
+        <span onClick={handleReset} className="search__close-icon"></span>
       </nav>
     </>
   )

@@ -7,10 +7,11 @@ import { IDevice, IDeviceState } from '../../../utils/types';
 // ICONS
 import BackIcon from '../../../assets/back-icon.svg';
 
-const DevicePageToolbar = () => {
+const DevicePathToolbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [shortname] = (location.pathname.match(/([^/]*)$/) || []);
+
   let device;
   if (shortname) {
     const devices = useSelector((state: IDeviceState) => state.devicesStore.devices)
@@ -20,6 +21,7 @@ const DevicePageToolbar = () => {
   const handleNavigation = () => {
     navigate('/')
   }
+
   return (
     <>
       <img onClick={() => handleNavigation()} src={BackIcon} alt="Back" />
@@ -28,4 +30,4 @@ const DevicePageToolbar = () => {
   )
 }
 
-export default DevicePageToolbar
+export default DevicePathToolbar

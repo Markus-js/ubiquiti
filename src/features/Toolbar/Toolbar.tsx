@@ -3,19 +3,19 @@ import { useLocation } from 'react-router-dom';
 // COMPONENTS
 import Filters from './Filter/Filter';
 import SearchBar from './SearchBar/SearchBar';
-import DevicePageToolbar from './DevicePageToolbar/DevicePageToolbar';
+import DevicePathToolbar from './DevicePathToolbar/DevicePathToolbar';
 // STYLE
 import './Toolbar.scss';
 
 const Toolbar = () => {
   const location = useLocation();
-  const isDevicePage = location.pathname.includes('device');
+  const isDevicePath = location.pathname.includes('device');
 
   return (
-    <section className={`toolbar ${isDevicePage ? "device-page" : "home-page"}`}>
-      {isDevicePage
+    <section className={`toolbar ${isDevicePath ? "device-page" : "home-page"}`}>
+      {isDevicePath
         ?
-        <DevicePageToolbar />
+        <DevicePathToolbar />
         :
         <>
           <SearchBar />

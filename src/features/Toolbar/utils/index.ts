@@ -1,4 +1,4 @@
-import { SetStateAction } from "react";
+import { ChangeEvent, SetStateAction } from "react";
 
 export const uniqueDevices = (devices: any) => {
     const uniqueDevices: any[] = [];
@@ -11,10 +11,10 @@ export const uniqueDevices = (devices: any) => {
 };
 
 export const handleCategoryChange = (
-    e: any,
+    eventTarget: EventTarget,
     setCheckedCategories: { (value: SetStateAction<string[]>): void }
 ) => {
-    const { name, checked } = e.target;
+    const { name, checked } = eventTarget as HTMLInputElement;
     setCheckedCategories((prevState: string[]) => {
         if (checked) {
             return [...prevState, name];
