@@ -2,9 +2,19 @@
 
 .toolbar {
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
+
     align-items: center;
     border-bottom: 1px solid $border-color;
     height: 48px;
     padding: 0 2em;
+}
+
+.home-page {
+    justify-content: space-between;
+}
+.device-page {
+    @include text($color: $text-color-light);
+    padding-right: calc(50% - 50px);
+    justify-content: space-between;
 }
