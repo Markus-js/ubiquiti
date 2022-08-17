@@ -24,13 +24,13 @@
     }
     &__icon {
         @extend %icon;
-        background: url("../../../assets/magnifier.svg");
+        background: url("../../../assets/magnifier-icon.svg");
         height: 30px;
         width: 30px;
     }
     &__close-icon {
         @extend %icon;
-        background: url("../../../assets/close.svg");
+        background: url("../../../assets/close-icon.svg");
         height: 12px;
         width: 12px;
         cursor: pointer;

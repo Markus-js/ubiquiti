@@ -23,7 +23,7 @@ interface IDevice {
         name: string;
     };
     shortnames: [string];
-    triplets: [
+    triplets?: [
         {
             k2: string;
             k1: string;

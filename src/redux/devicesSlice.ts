@@ -1,6 +1,15 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import {IDevice} from "../utils/interfaces";
 
-const initialState: any = {
+type InitialState = {
+    devices: IDevice[] | [],
+    filterDevices: IDevice[] | [],
+    persistentSearchTerm: string,
+    persistentCheckedFilters: string[] | [],
+    listView: boolean,
+}
+
+const initialState: InitialState = {
     devices: [],
     filterDevices: [],
     persistentSearchTerm: "",
@@ -16,75 +25,55 @@ export const DeviceReducer = createSlice({
             state.filterDevices = payload;
             state.devices = payload;
         },
+        // Filter the devices based on the search term and the checked filters.
         filterDevices: (state, { payload }) => {
-            const { searchTerm, checkedCategories } = payload;
+            /*
+            Payload returns one of the two objects when called and removes the other.
+            Both can´t exist at the same time => 
+            Therefore they need to persist/be stored in state when data comes in or 
+            revert to the initial state if payload is empty for the specific object.
+             */
+            const { searchTerm, checkedFilters } = payload;
 
             searchTerm === ""
-                ? (state.stateSearchTerm = "")
-                : (state.stateSearchTerm = searchTerm || state.stateSearchTerm);
+                ? (state.persistentSearchTerm = "")
+                : (state.persistentSearchTerm = searchTerm || state.persistentSearchTerm);
 
-            state.stateCheckedCategories =
-                checkedCategories || state.stateCheckedCategories || [];
+            state.persistentCheckedFilters = checkedFilters || state.persistentCheckedFilters || [];
 
-            const test = () => {
-                return state.devices.filter((device: any) => {
-                    return device.name
-                        .toLowerCase()
-                        .includes(state.stateSearchTerm.toLowerCase());
-                });
-            };
+            // If searchTerm & checkedFilters are empty, show all products.
             if (
-                state.stateSearchTerm.length === 0 &&
-                state.stateCheckedCategories.length === 0
+                state.persistentSearchTerm.length === 0 &&
+                state.persistentCheckedFilters.length === 0
             ) {
                 state.filterDevices = state.devices;
             } else {
-                state.filterDevices = state.devices.filter(
-                    (device: {
+                state.filterDevices = state.devices.filter((device: {
                         product: { name: string };
                         line: { name: string };
                     }) => {
-                        if (state.stateCheckedCategories.length === 0) {
-                            return (
-                                device.product.name
-                                    .toLowerCase()
-                                    .includes(
-                                        state.stateSearchTerm.toLowerCase()
-                                    ) ||
-                                device.line.name
-                                    .toLowerCase()
-                                    .includes(
-                                        state.stateSearchTerm.toLowerCase()
-                                    )
+                        if (state.persistentCheckedFilters.length === 0) {
+                            return getDataBySearchTerm(
+                                device.product.name,
+                                device.line.name,
+                                state.persistentSearchTerm
                             );
                         }
-                        return (
-                            (device.product.name
-                                .toLowerCase()
-                                .includes(
-                                    state.stateSearchTerm.toLowerCase()
-                                ) &&
-                                state.stateCheckedCategories.includes(
-                                    device.line.name
-                                )) ||
-                            (device.line.name
-                                .toLowerCase()
-                                .includes(
-                                    state.stateSearchTerm.toLowerCase()
-                                ) &&
-                                state.stateCheckedCategories.includes(
-                                    device.line.name
-                                ))
+                        return getDataBySearchTermAndCheckedFilters(
+                            device.product.name,
+                            device.line.name,
+                            state.persistentSearchTerm,
+                            state.persistentCheckedFilters
                         );
                     }
                 );
             }
         },
         resetCheckedFilters: state => {
-            state.stateCheckedCategories = [];
+            state.persistentCheckedFilters = [];
         },
         resetDevice: state => {
-            // filter widt categories
+            // filter widt Filters
             state.filterDevices = state.devices;
         },
         toggleViewType: (state, { payload }) => {
@@ -92,6 +81,32 @@ export const DeviceReducer = createSlice({
         },
     },
 });
+
+// filterDevices helpers
+function getDataBySearchTermAndCheckedFilters(
+    product: string,
+    line: string,
+    persistentSearchTerm: string,
+    persistentCheckedFilters: string[]
+) {
+    return (
+        (product.toLowerCase().includes(persistentSearchTerm.toLowerCase()) &&
+            persistentCheckedFilters.includes(line)) ||
+        (line.toLowerCase().includes(persistentSearchTerm.toLowerCase()) &&
+            persistentCheckedFilters.includes(line))
+    );
+}
+
+function getDataBySearchTerm(
+    product: string,
+    line: string,
+    persistentSearchTerm: string
+) {
+    return (
+        product.toLowerCase().includes(persistentSearchTerm.toLowerCase()) ||
+        line.toLowerCase().includes(persistentSearchTerm.toLowerCase())
+    );
+}
 
 export const {
     setDevices,

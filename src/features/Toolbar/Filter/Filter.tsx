@@ -8,7 +8,7 @@ import { IDeviceState } from '../../../utils/interfaces';
 // STYLE
 import './Filter.scss';
 // ICONS
-import Close from '../../../assets/close.svg';
+import Close from '../../../assets/close-icon.svg';
 import GridIcon from '../../../assets/grid-icon.svg';
 import GridIconActive from '../../../assets/grid-icon-active.svg';
 import ListIcon from '../../../assets/list-icon.svg';
