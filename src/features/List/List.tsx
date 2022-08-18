@@ -19,7 +19,6 @@ const List = () => {
   };
 
   return (
-
     <table className="table" >
       <thead className="table__head" >
         <tr>
