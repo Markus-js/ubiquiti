@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.svg';
 import logoActive from '../../assets/logo-active.svg';
 // STYLE
-import './header.scss';
+import './Header.scss';
 
 
 const Header = () => {
