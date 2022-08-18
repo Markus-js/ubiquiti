@@ -7,7 +7,7 @@ import { setDevices } from './redux/devicesSlice';
 import Header from './features/Header/Header';
 import Toolbar from './features/Toolbar/Toolbar';
 // PAGES
-import Home from './pages/Home/';
+import Home from './pages/Home/Home';
 import Device from './pages/Device/Device';
 // UTILS
 import { getDevices } from './utils/helpers';
